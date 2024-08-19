@@ -1,0 +1,295 @@
+// EXTERNAL LIBARIES
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sedan+SC&display=swap");
+
+// SCSS IMPORTS
+@import "../scss/variables.scss";
+@import "../scss/animation.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+#dark-mode {
+  color: $text-color-secondary;
+  $color-links: #1565c0;
+}
+////////////////////////////////////
+/* GLOBAL BANNER */
+
+div::-webkit-scrollbar {
+  height: 0.8rem;
+}
+
+div::-webkit-scrollbar-track {
+  border-radius: 1.2rem;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-color: var(--background-color-secondary);
+  border-radius: 1.2rem;
+  width: 20%;
+}
+
+.red {
+  color: red !important;
+}
+
+.green {
+  color: green !important;
+}
+
+p.red {
+  font-weight: 600 !important;
+}
+
+a {
+  color: $color-white;
+  text-decoration: none;
+}
+
+i {
+  color: $color-white;
+  font-size: 1.5rem;
+}
+
+img {
+  object-fit: cover;
+}
+
+table tr td img {
+  width: 3.2rem;
+  height: 3, 2rem;
+  vertical-align: middle;
+  margin-right: 0.6rem;
+  border-radius: 1.2rem;
+}
+
+table tr td:first-child {
+  border-radius: 1.2rem 0 0 1.2rem;
+}
+
+table tr td:last-child {
+  border-radius: 0 1.2rem 1.2rem 0;
+}
+
+body {
+  background: $background-color-dark;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  transition: all 0.5s ease;
+}
+
+.main-section {
+  flex: 1;
+  min-height: calc(100vh - 12rem);
+}
+
+.global-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.6rem, 2rem;
+  margin-top: 1rem;
+}
+
+.global-section p {
+  font-size: 1.2rem;
+  color: $color-white;
+}
+
+.global-section p span {
+  font-weight: 600;
+}
+////////////////////////////////
+
+// Navigation Section //
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $background-color-primary;
+  border-top: 1px solid $color-border-dark;
+  border-bottom: 1px solid $color-border-dark;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+nav .navigation-left-section,
+nav .navigation-right-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+nav .navigation-left-section .logo {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+nav .navigation-links {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .navigation-links a {
+  font-size: 1.2rem;
+  padding: 1rem 1.4rem;
+  border-radius: 1.2rem;
+  color: $text-color-secondary;
+  transition: all 0.3s ease;
+}
+
+nav .navigation-left-section .navigation-links a.active,
+nav .navigation-left-section .navigation-links a:hover {
+  background: $background-color-secondary;
+  color: $background-color-primary;
+}
+
+nav .navigation-right-section {
+  width: 30%;
+  gap: 0.5rem;
+}
+
+nav .navigation-right-section .searchForm {
+  display: flex;
+  align-items: center;
+  background-color: $background-color-dark;
+  padding: 0 1rem;
+  border-radius: 1.2rem;
+  width: 100%;
+}
+
+nav .navigation-right-section .searchForm input {
+  padding: 1rem 0.6rem;
+  background: $background-color-dark;
+  color: $color-white;
+  font-size: 1.4rem;
+}
+
+nav .navigation-right-section .searchForm input::placeholder,
+nav .navigation-right-section .searchForm i {
+  color: $text-color-secondary;
+}
+
+nav .navigation-right-section > i {
+  padding: 0.8rem;
+  background: $background-color-dark;
+  color: $color-white;
+  border-radius: 1.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav .navigation-right-section > i.ri-sun-line {
+  transform: rotate(0deg);
+}
+
+nav .navigation-right-section > i.ri-moon-line {
+  transform: rotate(360deg);
+}
+
+.sun-icon {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+/////////////////////////////////////////
+
+// Trending Coins & NFTs Section //
+.trending {
+  margin: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trending .coins-wrapper,
+.trending .nfts-wrapper {
+  width: 49%;
+}
+
+.trending h3 {
+  color: $color-white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.trending .coins-wrapper .trending-container,
+.trending .nfts-wrapper .trending-container {
+  background: $background-color-primary;
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  border: 1px solid $color-border-dark;
+}
+
+.trending table {
+  width: 100%;
+  border-spacing: 0 2rem;
+}
+
+.trending table th {
+  color: $color-white;
+  font-weight: 500;
+  text-align: left;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $color-border-dark;
+}
+
+.trending thead tr:hover {
+  background: transparent !important;
+  cursor: unset !important;
+}
+
+.trending .coins-wrapper table tr {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trending table tr td {
+  padding: 0.5rem;
+}
+
+.trending table tr td {
+  color: $text-color-secondary;
+  font-size: 1.3rem;
+}
+
+.trending .coins-wrapper table tr:hover,
+.trending .coins-wrapper table tr:hover td.table-fixed-column {
+  background-color: $background-color-dark;
+}
+
+.trending .coins-wrapper .trending-container .table-fixed-column,
+.trending .nfts-wrapper .trending-container .table-fixed-column {
+  left: -2rem;
+}
+
+.table-fixed-column {
+  background: $background-color-primary;
+  position: sticky;
+  left: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.error-message {
+  // display: block;
+  display: none;
+  color: red;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}

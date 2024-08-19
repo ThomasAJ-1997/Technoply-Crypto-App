@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+      integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Technopoly Crypto Marketplace</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body id="dark-mode">
+    <div class="main-section">
+      <!-- Global Banner Section -->
+      <div class="global-section">
+        <p>Coins: <b id="coinsID">21612</b></p>
+        <p>Exchange: <b id="exchangeID">1162</b></p>
+        <p>
+          Market Cape:
+          <span
+            ><b id="marketID">£1.183T</b>
+            <span id="maketChangeID"
+              >-3.9% <i class="ri-arrow-down-s-fill"></i></span
+          ></span>
+        </p>
+        <p>24H Vol: <b id="volumeID">£99.3456</b></p>
+        <p>Dominance: <b id="dominanceID">BTC 53.0% - ETH 15.6%</b></p>
+      </div>
+      <!-- Navigation Section -->
+      <nav>
+        <div class="navigation-left-section">
+          <a href="#" class="logo">Technopoly.</a>
+          <div class="navigation-links">
+            <a href="/index.html" class="active-page">Home</a>
+            <a href="/pages/charts.html">Charts</a>
+            <a href="/pages/search.html">Search</a>
+            <a href="/pages/about.html">About</a>
+          </div>
+        </div>
+        <div class="navigation-right-section">
+          <form class="searchForm" id="searchFormID">
+            <i class="ri-search-line search-icon"></i>
+            <input
+              type="text"
+              id="searchInputID"
+              placeholder="Search for an asset..."
+              required
+              autofocus="off"
+            />
+          </form>
+          <i id="lightAndDarkModeToggleID" class="ri-sun-fill sun-icon"></i>
+        </div>
+      </nav>
+      <!-- Trending Section -->
+      <div class="trending">
+        <div class="coins-wrapper">
+          <div class="header">
+            <h3>Trending Coins</h3>
+          </div>
+          <div class="trending-container">
+            <div id="coins-listID">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="table-fixed-column">Coin</th>
+                    <th>Price</th>
+                    <th>Market Cap</th>
+                    <th>Volume</th>
+                    <th>24H%</th>
+                  </tr>
+                </thead>
+                <tr>
+                    <td class="name-column table-fixed-column">
+                      <img
+                        src="/img/bitcoin-logo.png"
+                        alt=" Trending Crypto Coins"
+                      />
+                      Bitcoin <span>(BTC)</span>
+                    </td>
+                    <td>£0.000101</td>
+                    <td>£12,617,199,272</td>
+                    <td>£128,345,753</td>
+                    <td class="red">-7.43%</td>
+                  </tr>
+
+                  <tr>
+                    <td class="name-column table-fixed-column">
+                      <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                      Bitcoin <span>(BTC)</span>
+                    </td>
+                    <td>£0.000101</td>
+                    <td>£12,617,199,272</td>
+                    <td>£128,345,753</td>
+                    <td class="red">-7.43%</td>
+                  </tr>
+
+                  <tr>
+                    <td class="name-column table-fixed-column">
+                      <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                      Bitcoin <span>(BTC)</span>
+                    </td>
+                    <td>£0.000101</td>
+                    <td>£12,617,199,272</td>
+                    <td>£128,345,753</td>
+                    <td class="red">-7.43%</td>
+                  </tr>
+
+                  <tr>
+                    <td class="name-column table-fixed-column">
+                      <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                      Bitcoin <span>(BTC)</span>
+                    </td>
+                    <td>£0.000101</td>
+                    <td>£12,617,199,272</td>
+                    <td>£128,345,753</td>
+                    <td class="red">-7.43%</td>
+                  </tr>
+
+                  <tr>
+                    <td class="name-column table-fixed-column">
+                      <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                      Bitcoin <span>(BTC)</span>
+                    </td>
+                    <td>£0.000101</td>
+                    <td>£12,617,199,272</td>
+                    <td>£128,345,753</td>
+                    <td class="red">-7.43%</td>
+                  </tr>
+              </table>
+            </div>
+            <div class="spinner" id="coins-list-spinnerID"></div>
+            <div class="error-message" id="coins-list-errorID">
+              Maximum API Limit reached. Pleae come back later.
+            </div>
+          </div>
+        </div>
+               <!-- NTF's Section -->
+               <div class="nfts-wrapper">
+                <div class="header">
+                  <h3>Trending NFTs</h3>
+                </div>
+                <div class="trending-container">
+                  <div id="nfts-listID">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="table-fixed-column">NFT</th>
+                          <th>Market</th> 
+                          <th>Price</th>
+                          <th>24h Vol</th>
+                          <th>24H%</th>
+                        </tr> 
+                      </thead>
+                      <tr>
+                        <td class="name-column table-fixed-column">
+                          <img
+                            src="/img/bitcoin-logo.png"
+                            alt=" Trending Crypto Coins"
+                          />
+                          Bitcoin <span>(BTC)</span>
+                        </td>
+                        <td>£0.000101</td>
+                        <td>£12,617,199,272</td>
+                        <td>£128,345,753</td>
+                        <td class="green">7.43%</td>
+                      </tr>
+    
+                      <tr>
+                        <td class="name-column table-fixed-column">
+                          <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                          Bitcoin <span>(BTC)</span>
+                        </td>
+                        <td>£0.000101</td>
+                        <td>£12,617,199,272</td>
+                        <td>£128,345,753</td>
+                        <td class="red">-7.43%</td>
+                      </tr>
+    
+                      <tr>
+                        <td class="name-column table-fixed-column">
+                          <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                          Bitcoin <span>(BTC)</span>
+                        </td>
+                        <td>£0.000101</td>
+                        <td>£12,617,199,272</td>
+                        <td>£128,345,753</td>
+                        <td class="red">-7.43%</td>
+                      </tr>
+    
+                      <tr>
+                        <td class="name-column table-fixed-column">
+                          <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                          Bitcoin <span>(BTC)</span>
+                        </td>
+                        <td>£0.000101</td>
+                        <td>£12,617,199,272</td>
+                        <td>£128,345,753</td>
+                        <td class="red">-7.43%</td>
+                      </tr>
+    
+                      <tr>
+                        <td class="name-column table-fixed-column">
+                          <img src="/img/bitcoin-logo.png" alt="Crypto Coins" />
+                          Bitcoin <span>(BTC)</span>
+                        </td>
+                        <td>£0.000101</td>
+                        <td>£12,617,199,272</td>
+                        <td>£128,345,753</td>
+                        <td class="red">-7.43%</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="spinner" id="nfts-list-spinnerID"></div>
+                  <div class="error-message" id="nfts-list-errorID">
+                    Maximum API Limit reached. Pleae come back later.
+                  </div>
+                </div>
+      </div>
+     
+    </div>
+     <!-- Tab Container Section -->
+  </body>
+</html>
