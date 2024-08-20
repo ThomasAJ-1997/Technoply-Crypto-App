@@ -82,6 +82,16 @@ table tr td:last-child {
   border-radius: 0 1.2rem 1.2rem 0;
 }
 
+table tr td.rank {
+  padding-left: 1rem;
+}
+
+table tr td.name-column {
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 3rem;
+}
 body {
   background: $background-color-dark;
   display: flex;
@@ -234,12 +244,14 @@ nav .navigation-right-section > i.ri-moon-line {
   border: 1px solid $color-border-dark;
 }
 
-.trending table {
+.trending table,
+.tab-container .tab-content table {
   width: 100%;
   border-spacing: 0 2rem;
 }
 
-.trending table th {
+.trending table th,
+.tab-container .tab-content table th {
   color: $color-white;
   font-weight: 500;
   text-align: left;
@@ -252,7 +264,8 @@ nav .navigation-right-section > i.ri-moon-line {
   cursor: unset !important;
 }
 
-.trending .coins-wrapper table tr {
+.trending .coins-wrapper table tr,
+.tab-container .tab-content #asset-list table tr {
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -261,13 +274,21 @@ nav .navigation-right-section > i.ri-moon-line {
   padding: 0.5rem;
 }
 
-.trending table tr td {
+.trending table tr td,
+.tab-container .tab-content table tr td {
   color: $text-color-secondary;
   font-size: 1.3rem;
 }
 
 .trending .coins-wrapper table tr:hover,
-.trending .coins-wrapper table tr:hover td.table-fixed-column {
+.trending .coins-wrapper table tr:hover td.table-fixed-column,
+.tab-container .tab-content #asset-list table tr:hover,
+.tab-container .tab-content #asset-list table tr:hover td.table-fixed-column {
+  background-color: $background-color-dark;
+}
+
+.trending .nfts-wrapper table tr:hover,
+.trending .nfts-wrapper table tr:hover td.table-fixed-column {
   background-color: $background-color-dark;
 }
 
@@ -292,4 +313,48 @@ nav .navigation-right-section > i.ri-moon-line {
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+/////////////////////////////////////////
+// Tabs Section //
+.tab-container {
+  margin: 0 4rem;
+  background-color: $background-color-primary;
+  padding: 2rem;
+  border-radius: 1.2rem;
+}
+
+.tab-container .tabs {
+  background-color: $background-color-dark;
+  display: inline-flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  margin-bottom: 3rem;
+  // border: 1px solid white;
+}
+
+.tab-container .tabs .tab-button {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  background: transparent;
+  color: $text-color-secondary;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-container .tabs .tab-button i {
+  font-size: 2rem;
+  color: $text-color-secondary;
+  transition: all 0.3s ease;
+  margin-right: -4.2rem;
+}
+
+.tab-container .tabs .tab-button.active,
+.tab-container .tabs .tab-button.active i {
+  color: $color-white;
+  font-weight: 700;
+  font-size: large;
 }
