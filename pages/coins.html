@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+      integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Technopoly Crypto Marketplace</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body id="dark-mode">
+    <div class="main-section">
+      <!-- Global Banner Section -->
+      <div class="global-section">
+        <p>Coins: <b id="coinsID">21612</b></p>
+        <p>Exchange: <b id="exchangeID">1162</b></p>
+        <p>
+          Market Cape:
+          <span
+            ><b id="marketID">£1.183T</b>
+            <span id="maketChangeID"
+              >-3.9% <i class="ri-arrow-down-s-fill"></i></span
+          ></span>
+        </p>
+        <p>24H Vol: <b id="volumeID">£99.3456</b></p>
+        <p>Dominance: <b id="dominanceID">BTC 53.0% - ETH 15.6%</b></p>
+      </div>
+      <!-- Navigation Section -->
+      <nav>
+        <div class="navigation-left-section">
+          <a href="#" class="logo">Technopoly.</a>
+          <div class="navigation-links">
+            <a href="/index.html">Home</a>
+            <a href="/pages/charts.html">Charts</a>
+            <a href="/pages/search.html">Search</a>
+            <a href="/pages/about.html">About</a>
+          </div>
+        </div>
+        <div class="navigation-right-section">
+          <form class="searchForm" id="searchFormID">
+            <i class="ri-search-line search-icon"></i>
+            <input
+              type="text"
+              id="searchInputID"
+              placeholder="Search for an asset..."
+              required
+              autofocus="off"
+            />
+          </form>
+          <i id="lightAndDarkModeToggleID" class="ri-sun-fill sun-icon"></i>
+        </div>
+      </nav>
+      <div class="coins-container">
+        <div class="coins-left-section">
+          <div class="ticker">
+            <div class="tradingview-menu-container" id="ticker-menuID"></div>
+          </div>
+          <h3>Statistics</h3>
+          <div class="coin-info">
+            <div class="logo">
+              <img src="../img/bitcoin-logo.png" alt="Bitcoin" />
+              <h4>Bitcoin <span>(BTC)</span></h4>
+              <p>#1</p>
+            </div>
+            <div class="status">
+              <div class="item">
+                <p class="str">Market Cap</p>
+                <p class="num">£1,232,456,113,345.000</p>
+              </div>
+              <div class="item">
+                <p class="str">Current Price</p>
+                <p class="num">£34,049.000</p>
+              </div>
+              <div class="item">
+                <p class="str">All Time High</p>
+                <p class="num">£45,343.000</p>
+              </div>
+              <div class="item">
+                <p class="str">All Time Low</p>
+                <p class="num">£67.338</p>
+              </div>
+              <div class="item">
+                <p class="str">Total Volume</p>
+                <p class="num">44,479,445,945.000</p>
+              </div>
+              <div class="item">
+                <p class="str">Total Supply</p>
+                <p class="num">21,000,000.000</p>
+              </div>
+              <div class="item">
+                <p class="str">Max Supply</p>
+                <p class="num">21.000,000.000</p>
+              </div>
+              <div class="item">
+                <p class="str">Circulating Supply</p>
+                <p class="num">19,564,343.000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="coins-main-section">
+          <div class="mini-chart">
+            <div
+              class="tradingview-menu-container"
+              id="mini-chart-menuID"
+            ></div>
+          </div>
+        </div>
+
+        <div class="coins-right-section">
+          <div class="status">
+            <h3>Historical Data</h3>
+            <div class="container">
+              <div class="item">
+                <p class="str">ATH</p>
+                <p class="num">£45,454.000</p>
+              </div>
+              <div class="item">
+                <p class="str">ATL</p>
+                <p class="num">£67.456</p>
+              </div>
+              <div class="item">
+                <p class="str">24h High</p>
+                <p class="num">£34,507.000</p>
+              </div>
+              <div class="item">
+                <p class="str">24h Low</p>
+                <p class="num">£12,454.000</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="status">
+            <h3>Markets</h3>
+            <div class="container">
+              <div class="item">
+                <p class="str">Binance</p>
+                <div class="links">
+                  <a href="https://www.binance.com/en-GB">Trade</a>
+                  <p style="background-color: green">Trust: green</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <p class="str">Coinbase</p>
+                <div class="links">
+                  <a href="https://www.coinbase.com/en-gb/">Trade</a>
+                  <p style="background-color: green">Trust: green</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <p class="str">Kraken</p>
+                <div class="links">
+                  <a href="https://www.kraken.com/">Trade</a>
+                  <p style="background-color: green">Trust: green</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="status">
+            <h3>Info</h3>
+            <div class="container">
+              <div class="item">
+                <p class="str">Website</p>
+                <div class="links">
+                  <a target="_blank" href="https://bitcoin.org/en/">Visit</a>
+                  <a target="_blank" href="https://bitcoin.org/bitcoin.pdf"
+                    >Whitepaper</a
+                  >
+                </div>
+              </div>
+              <div class="item">
+                <p class="str">Community</p>
+                <div class="links">
+                  <a target="_blank" href="https://twitter.com/?lang=en">X</a>
+                  <a
+                    target="_blank"
+                    href="https://www.facebook.com/?locale=en_GB"
+                    >Facebook</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="coins-description">
+        <h3>About Asset</h3>
+        <p id="coin-descID">
+          Bitcoin is the first successful internet money based on peer-to-peer
+          technology; whereby no central bank or authority is involved in the
+          transaction and production of the Bitcoin currency. It was created by
+          an anonymous group under the name, Satoshi Nakamoto. The source code
+          is available as an open source project for anybody to access. Bitcoin
+          is changing the way we see money as you read this description.
+          <br />
+          <br />
+          The idea was to producr a means of exchange, independent of any
+          central authority, that could be transferred electronically in a
+          secure, verifiable and immutable way. It is a decentralised
+          peer-to-peer internet currenct making mobule payment easy, very low
+          transaction fees, protects your identity, and it works anywhere all
+          the time with no central authority and banks.
+          <br />
+          <br />
+          Bitcoin is designed to have only 21 million BTC ever created, thus
+          making it a deflationary currency.
+          <br />
+          <br />
+          Bitcoin uses the
+          <a href="https://www.coingecko.com/en/api">SHA-256</a> hashing
+          algorithm with an average transaction confirmation time of 10 minutes.
+          Miners today are mining Bitcoin using ASIC chip dedicated to only
+          mining Bitcoin, and the hash ratehas shot up to peta - hashes.
+          <br />
+          <br />
+        </p>         
+        <div class="error-message" id="coins-info-error">
+          Maximum API Limit reached. Pleae come back later.</div>
+      </div>
+      </div>
+    </div>
+    <footer>
+      <p>Thomas Jones 2024, Technopoly Crypto Marketplace</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/channel/UC9atlQjfCUQ9k7DwMjrzoeA"
+          ><i class="ri-youtube-line"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/thomas-jones-50860b1b4/"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a href="https://github.com/ThomasAJ-1997"
+          ><i class="ri-github-fill"></i
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>
