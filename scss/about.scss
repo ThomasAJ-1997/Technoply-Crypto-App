@@ -1,0 +1,53 @@
+.about-container {
+  background: $background-color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem 4rem 0;
+  padding: 4rem;
+  border: 1px solid $color-border-dark;
+  border-radius: 1.2rem;
+}
+
+.about-container .image {
+  text-align: right;
+}
+
+.about-container .image img {
+  width: 75%;
+  box-sizing: 4rem;
+}
+
+.about-container .info {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-container .info h3 {
+  color: $color-white;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.about-container .info p {
+  color: $text-color-secondary;
+  text-align: justify;
+  font-size: 1.4rem;
+}
+
+.about-container .info button {
+  background: $background-color-dark;
+  color: $color-white;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  border: 1px solid $color-border-dark;
+  cursor: pointer;
+  width: 12rem;
+  transition: all 0.3s ease;
+}
+
+.about-container .info button:hover {
+  background-color: $background-color-secondary;
+  color: $background-color-dark;
+}

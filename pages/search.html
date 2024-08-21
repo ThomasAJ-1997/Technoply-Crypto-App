@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+      integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Technopoly Crypto Marketplace</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body id="dark-mode">
+    <div class="main-section">
+      <!-- Global Banner Section -->
+      <div class="global-section">
+        <p>Coins: <b id="coinsID">21612</b></p>
+        <p>Exchange: <b id="exchangeID">1162</b></p>
+        <p>
+          Market Cape:
+          <span
+            ><b id="marketID">£1.183T</b>
+            <span id="maketChangeID"
+              >-3.9% <i class="ri-arrow-down-s-fill"></i></span
+          ></span>
+        </p>
+        <p>24H Vol: <b id="volumeID">£99.3456</b></p>
+        <p>Dominance: <b id="dominanceID">BTC 53.0% - ETH 15.6%</b></p>
+      </div>
+      <!-- Navigation Section -->
+      <nav>
+        <div class="navigation-left-section">
+          <a href="#" class="logo">Technopoly.</a>
+          <div class="navigation-links">
+            <a href="/index.html">Home</a>
+            <a href="/pages/charts.html">Charts</a>
+            <a href="/pages/search.html" class="active-page">Search</a>
+            <a href="/pages/about.html">About</a>
+          </div>
+        </div>
+        <div class="navigation-right-section">
+          <form class="searchForm" id="searchFormID">
+            <i class="ri-search-line search-icon"></i>
+            <input
+              type="text"
+              id="searchInputID"
+              placeholder="Search for an asset..."
+              required
+              autofocus="off"
+            />
+          </form>
+          <i id="lightAndDarkModeToggleID" class="ri-sun-fill sun-icon"></i>
+        </div>
+      </nav>
+      <!-- Search Section -->
+      <h3 id="searchHeadingID">Search Results for "bit"</h3>
+      <div class="search-container">
+        <div class="item">
+          <h4>Asset Results</h4>
+          <div id="coins-listID">
+            <table>
+              <thead>
+                <tr>
+                  <th class="table-fixed-column">Rank</th>
+                  <th>Coin</th>
+                </tr>
+              </thead>
+
+              <tr>
+                <td>1</td>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bitcoin" /><span
+                    >(BTC)</span
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bitcoin" /><span
+                    >(BTC)</span
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bitcoin" /><span
+                    >(BTC)</span
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bitcoin" /><span
+                    >(BTC)</span
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td>5</td>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bitcoin" /><span
+                    >(BTC)</span
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="spinner" id="coins-list-spinner"></div>
+          <div class="error-message" id="coins-list-error">
+            Maximum API Limit reached. Pleae come back later.
+          </div>
+        </div>
+        <div class="item">
+          <h4>Exchange Results</h4>
+          <div id="exchanges-listID">
+            <table>
+              <thead>
+                <tr>
+                  <th class="table-fixed-column">Exchange</th>
+                  <th>Market</th>
+                </tr>
+              </thead>
+              <tr>
+                <td class="name-column">
+                  <img src="../img/bitcoin-logo.png" alt="Bybit" />Bybit
+                </td>
+              </tr>
+
+              <td class="name-column">
+                <img src="../img/bitcoin-logo.png" alt="Bybit" />Bybit
+              </td>
+            </tr>
+
+            <td class="name-column">
+                <img src="../img/bitcoin-logo.png" alt="Bybit" />Bybit
+              </td>
+            </tr>
+
+            <td class="name-column">
+                <img src="../img/bitcoin-logo.png" alt="Bybit" />Bybit
+              </td>
+            </tr>
+
+            <td class="name-column">
+                <img src="../img/bitcoin-logo.png" alt="Bybit" />Bybit
+              </td>
+            </tr>
+            </table>
+          </div>
+          <div class="spinner" id="exchange-list-spinner"></div>
+          <div class="error-message" id="exchange-list-error">
+            Maximum API Limit reached. Pleae come back later.</div>
+        </div>
+
+        <div class="item">
+            <h4>NFT Results</h4>
+            <div id="nfts-listID">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="table-fixed-column">NFT</th>
+                            <th>Symbol</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="name-column"><img src="../img/bitcoin-logo.png" alt="Hitobito Reverse">Hitobito Reverse</td>
+                        <td>HITOBITO REVERSE</td>
+                    </tr>
+
+                    <tr>
+                        <td class="name-column"><img src="../img/bitcoin-logo.png" alt="Hitobito Reverse">Hitobito Reverse</td>
+                        <td>HITOBITO REVERSE</td>
+                    </tr>
+
+                    <tr>
+                        <td class="name-column"><img src="../img/bitcoin-logo.png" alt="Hitobito Reverse">Hitobito Reverse</td>
+                        <td>HITOBITO REVERSE</td>
+                    </tr>
+
+                    <tr>
+                        <td class="name-column"><img src="../img/bitcoin-logo.png" alt="Hitobito Reverse">Hitobito Reverse</td>
+                        <td>HITOBITO REVERSE</td>
+                    </tr>
+
+                    <tr>
+                        <td class="name-column"><img src="../img/bitcoin-logo.png" alt="Hitobito Reverse">Hitobito Reverse</td>
+                        <td>HITOBITO REVERSE</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="spinner" id="nfts-list-spinner"></div>
+            <div class="error-message" id="nfts-list-error">
+              Maximum API Limit reached. Pleae come back later.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Thomas Jones 2024, Technopoly Crypto Marketplace</p>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/channel/UC9atlQjfCUQ9k7DwMjrzoeA"
+          ><i class="ri-youtube-line"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/thomas-jones-50860b1b4/"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a href="https://github.com/ThomasAJ-1997"
+          ><i class="ri-github-fill"></i
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

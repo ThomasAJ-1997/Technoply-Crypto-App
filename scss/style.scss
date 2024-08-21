@@ -5,6 +5,10 @@
 @import "../scss/variables.scss";
 @import "../scss/animation.scss";
 
+// SCSS PAGES
+@import "../scss/charts.scss";
+@import "../scss/search.scss";
+@import "../scss/about.scss";
 * {
   padding: 0;
   margin: 0;
@@ -103,6 +107,12 @@ body {
 .main-section {
   flex: 1;
   min-height: calc(100vh - 12rem);
+}
+
+.main-section > h3 {
+  color: $color-white;
+  margin: 4rem 4rem 2rem;
+  font-weight: 500;
 }
 
 .global-section {
@@ -245,13 +255,15 @@ nav .navigation-right-section > i.ri-moon-line {
 }
 
 .trending table,
-.tab-container .tab-content table {
+.tab-container .tab-content table,
+.search-container .item table {
   width: 100%;
   border-spacing: 0 2rem;
 }
 
 .trending table th,
-.tab-container .tab-content table th {
+.tab-container .tab-content table th,
+.search-container .item table th {
   color: $color-white;
   font-weight: 500;
   text-align: left;
@@ -265,17 +277,20 @@ nav .navigation-right-section > i.ri-moon-line {
 }
 
 .trending .coins-wrapper table tr,
-.tab-container .tab-content #asset-list table tr {
+.tab-container .tab-content #asset-list table tr,
+.search-container .item #coins-listID table tr {
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.trending table tr td {
+.trending table tr td,
+.search-container .item table tr td {
   padding: 0.5rem;
 }
 
 .trending table tr td,
-.tab-container .tab-content table tr td {
+.tab-container .tab-content table tr td,
+.search-container .item table tr td {
   color: $text-color-secondary;
   font-size: 1.3rem;
 }
@@ -283,7 +298,8 @@ nav .navigation-right-section > i.ri-moon-line {
 .trending .coins-wrapper table tr:hover,
 .trending .coins-wrapper table tr:hover td.table-fixed-column,
 .tab-container .tab-content #asset-list table tr:hover,
-.tab-container .tab-content #asset-list table tr:hover td.table-fixed-column {
+.tab-container .tab-content #asset-list table tr:hover td.table-fixed-column,
+.search-container .item #coins-listID table tr td:hover {
   background-color: $background-color-dark;
 }
 
@@ -301,7 +317,7 @@ nav .navigation-right-section > i.ri-moon-line {
   background: $background-color-primary;
   position: sticky;
   left: 0;
-  z-index: 50;
+  z-index: 100;
   transition: all 0.3s ease;
 }
 

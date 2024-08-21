@@ -1,0 +1,19 @@
+//
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  padding: 2rem 2rem 1rem;
+  gap: 2rem;
+  border: 1px solid $color-border-dark;
+}
+
+.search-container .item {
+  width: 30%;
+}
+
+.search-container .item h4 {
+  color: $color-white;
+  font-weight: 500;
+  margin: 0 0 2rem;
+}

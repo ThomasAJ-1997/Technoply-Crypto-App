@@ -1,0 +1,15 @@
+.hidden {
+  display: none;
+}
+
+.charts-container,
+.search-container {
+  margin: 4rem 4rem 0;
+  background: $background-color-primary;
+  border-radius: 1.2rem;
+  height: 100vh;
+}
+
+.charts-container {
+  margin-bottom: 2rem;
+}
