@@ -97,4 +97,17 @@ function displayGlobalData(globalData) {
 
   dominance.textContent = `BTC ${btcDominance} - ETH ${ethDominance}`;
 }
-/////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Loading in API Data: Spinner appears
+
+function toggleSpinner(listId, spinnerId, show) {
+  const listElement = document.getElementById(listId);
+  const spinnerElement = dcoument.getElementById(spinnerId);
+
+  if (spinnerElement) {
+    spinnerElement.stylw.display = show ? "block" : "none";
+  }
+  if (listElement) {
+    listElement.style.display = show ? "none" : "block";
+  }
+}
