@@ -1,5 +1,3 @@
-"use strict";
-
 const coinsCount = document.getElementById("coinsID");
 const exchangeCount = document.getElementById("exchangeID");
 const marketCount = document.getElementById("marketID");
@@ -19,7 +17,6 @@ function getLocalStorageData(key) {
 
   const parsedData = JSON.parse(storeData);
   const currentTime = Date.now();
-  // The data is older than five mins - fetch it again.
   if (currentTime - parsedData.timestamp > 300000) {
     localStorage.removeItem(key);
     return null;
@@ -97,17 +94,36 @@ function displayGlobalData(globalData) {
 
   dominance.textContent = `BTC ${btcDominance} - ETH ${ethDominance}`;
 }
-//////////////////////////////////////////////////////////////////////
-// Loading in API Data: Spinner appears
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 function toggleSpinner(listId, spinnerId, show) {
   const listElement = document.getElementById(listId);
-  const spinnerElement = dcoument.getElementById(spinnerId);
+  const spinnerElement = document.getElementById(spinnerId);
 
   if (spinnerElement) {
-    spinnerElement.stylw.display = show ? "block" : "none";
+    spinnerElement.style.display = show ? "block" : "none";
   }
+
   if (listElement) {
     listElement.style.display = show ? "none" : "block";
   }
+}
+
+function createTable(headers, fixIndex = 0) {
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  table.appendChild(thead);
+
+  const headerRow = document.createElement("tr");
+  headers.forEach((header, index) => {
+    const th = document.createElement("th");
+    th.textContent = header;
+
+    if (index === fixIndex) {
+      th.classList.add("table-fixed-column");
+    }
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+
+  return table;
 }

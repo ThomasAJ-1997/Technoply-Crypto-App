@@ -1,4 +1,3 @@
-"use strict";
 // TAB DATA API: ASSETS, EXCHANGES, CATEGORIES, HOLDINGS
 const tabDataLoad = {
   tab1: false,
@@ -21,7 +20,7 @@ function openTab(event, tabName) {
     switch (tabName) {
       case "tab1":
         fetchAndDisplay(
-          "https://pro-api.coingecko.com/api/v3/coins/market?vs_currency=gbp&order=market_cap_desc&per_page=20&page=1&sparkline=true",
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=20&page=1&sparkline=true",
           ["asset-list"],
           displayAssets,
           tabName,
@@ -31,18 +30,18 @@ function openTab(event, tabName) {
 
       case "tab2":
         fetchAndDisplay(
-          "https://pro-api.coingecko.com/api/v3/exchanges",
+          "https://api.coingecko.com/api/v3/exchanges",
           ["exchange-list"],
           displayExchange,
           tabName,
-          "Exchanges_Data"
+          "Exchange_Data"
         );
         break;
 
       case "tab3":
         fetchAndDisplay(
-          "https://pro-api.coingecko.com/api/v3/coins/categories",
-          ["categories-list"],
+          "https://api.coingecko.com/api/v3/coins/categories",
+          ["category-list"],
           displayCategories,
           tabName,
           "Categories_Data"
@@ -51,7 +50,7 @@ function openTab(event, tabName) {
 
       case "tab4":
         fetchAndDisplay(
-          "https://pro-api.coingecko.com/api/v3/companies/public_treasury/bitcoin",
+          "https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin",
           ["company-list"],
           displayCompanies,
           tabName,
@@ -62,24 +61,25 @@ function openTab(event, tabName) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".tab-button").click();
   fetchData();
 });
-//////////////////////////////////////////////////////////////////
-// FETCH DATA FOR TABS
+
+//////////////////////////////////////////////////////////////////////////////
 
 async function fetchData() {
   await Promise.all([
     fetchAndDisplay(
-      "https://pro-api.coingecko.com/api/v3/search/trending",
+      "https://api.coingecko.com/api/v3/search/trending",
       ["coins-listID", "nfts-listID"],
       displayTrends,
       null,
-      "Trending_data"
+      "Trending_Data"
     ),
+
     fetchAndDisplay(
-      "https://pro-api.coingecko.com/api/v3/coins/market?vs_currency=gbp&order=market_cap_desc&per_page=20&page=1&sparkline=true",
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=20&page=1&sparkline=true",
       ["asset-list"],
       displayAssets,
       null,
@@ -106,19 +106,18 @@ async function fetchAndDisplay(
 
   const localStorageKey = localKey;
   const localData = getLocalStorageData(localStorageKey);
-  // If local storage data exists in thr application.
+
   if (localData) {
     idsToToggle.forEach((id) => toggleSpinner(id, `${id}-spinner`, false));
     displayFunction(localData);
 
     if (tabName) {
-      // Setting the tab data as loaded, if not loaded (API error msg) with clicking and attempt to fetch again, else nothing will happen.
       tabDataLoad[tabName] = true;
     }
   } else {
     try {
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`API limit reached`);
+      if (!response.ok) throw new Error("API limit reached");
       const data = await response.json();
       idsToToggle.forEach((id) => toggleSpinner(id, `${id}-spinner`, false));
       displayFunction(data);
@@ -137,4 +136,45 @@ async function fetchAndDisplay(
       }
     }
   }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+function displayTrends(data) {
+  displayTrendCoins(data.coins.slice(0, 5));
+  displayTrendNfts(data.nfts.slice(0, 5));
+}
+
+function displayTrendCoins(coins) {
+  const coinTable = document.getElementById("coins-listID");
+  coinTable.innerHTML = "";
+  const table = createTable(["Coin", "Price", "Market Cap", "Volume", "24h%"]);
+
+  coins.forEach((coin) => {
+    const coinData = coin.item;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+    <td class="name-column table-fixed-column"> <img src="${
+      coinData.thumb
+    }" alt="${coinData.name}"/> ${coinData.name}
+    <span>(${coinData.symbol.toUpperCase()})</span></td>
+    <td>${parseFloat(coinData.price_btc).toFixed(6)}</td>
+    <td>${coinData.data.market_cap}</td>
+    <td>${coinData.data.total_volume}</td>
+    <td class="${
+      coinData.data.price_change_percentage_24h.gbp >= 0 ? "green" : "red"
+    }">${coinData.data.price_change_percentage_24h.gbp.toFixed(2)}%</td>
+    `;
+    // console.log(coinData.name);
+    // console.log(coinData.thumb);
+    // console.log(coinData.symbol.toUpperCase());
+    // console.log(parseFloat(coinData.price_btc).toFixed(6));
+    // console.log(coinData.data.market_cap);
+    // console.log(coinData.data.total_volume);
+    // console.log(coinData.data.price_change_percentage_24h.gbp);
+
+    row.onclick = () =>
+      (window.location.href = `../pages/coins.html?coin=${coinData.id}`);
+    table.appendChild(row);
+  });
+  coinTable.appendChild(table);
 }
