@@ -137,7 +137,9 @@ async function fetchAndDisplay(
     }
   }
 }
-///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+// COINS TRENDING
 
 function displayTrends(data) {
   displayTrendCoins(data.coins.slice(0, 5));
@@ -145,8 +147,8 @@ function displayTrends(data) {
 }
 
 function displayTrendCoins(coins) {
-  const coinTable = document.getElementById("coins-listID");
-  coinTable.innerHTML = "";
+  const coinsList = document.getElementById("coins-listID");
+  coinsList.innerHTML = "";
   const table = createTable(["Coin", "Price", "Market Cap", "Volume", "24h%"]);
 
   coins.forEach((coin) => {
@@ -176,5 +178,139 @@ function displayTrendCoins(coins) {
       (window.location.href = `../pages/coins.html?coin=${coinData.id}`);
     table.appendChild(row);
   });
-  coinTable.appendChild(table);
+  coinsList.appendChild(table);
+}
+
+////////////////////////////////////////////////////////////////////////
+// NFT TRENDING
+
+function displayTrendNfts(nfts) {
+  const nftsList = document.getElementById("nfts-listID");
+  nftsList.innerHTML = "";
+  const table = createTable(["NFT", "Market", "Price", "24h Vol", "24h%"]);
+
+  nfts.forEach((nft) => {
+    // const coinData = coin.item;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+    <td class="name-column table-fixed-column"> <img src="${nft.thumb}" alt="${
+      nft.name
+    }"/> ${nft.name}
+    <span>(${nft.symbol.toUpperCase()})</span></td>
+    <td>${nft.native_currency_symbol}</td>
+    <td>${nft.data.floor_price}</td>
+    <td>${nft.data.h24_volume}</td>
+    <td class="${
+      parseFloat(nft.data.floor_price_in_usd_24h_percentage_change) >= 0
+        ? "green"
+        : "red"
+    }">${parseFloat(nft.data.floor_price_in_usd_24h_percentage_change).toFixed(
+      2
+    )}%</td>
+    `;
+    table.appendChild(row);
+  });
+  nftsList.appendChild(table);
+}
+/////////////////////////////////////////////////////////////////////////
+// DISPLAY ASSETS TAB
+function displayAssets(data) {
+  const cryptoList = document.getElementById("asset-list");
+  cryptoList.innerHTML = "";
+  const table = createTable(
+    [
+      "Rank",
+      "Coin",
+      "Price",
+      "24h Price",
+      "24h Price %",
+      "Total Vol",
+      "Market Cap",
+      "7 Days Activity",
+    ],
+    1
+  );
+
+  const sparklineData = [];
+  data.forEach((asset) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+    <td class="rank">${asset.market_cap_rank}</td>
+    <td class="name-column table-fixed-column"><img src="${asset.image}"
+    alt="${asset.name}"/>${
+      asset.name
+    } <span>(${asset.symbol.toUpperCase()})</span></td>
+    <td>£${asset.current_price.toFixed(2)}</td>
+    <td class="${
+      asset.price_change_percentage_24h >= 0 ? "green" : "red"
+    }">£${asset.price_change_percentage_24h.toFixed(2)}</td>
+    <td class="${
+      asset.price_change_percentage_24h >= 0 ? "green" : "red"
+    }">${asset.price_change_percentage_24h.toFixed(2)}%</td>
+    <td>£${asset.total_volume.toLocaleString()}</td>
+    <td>£${asset.market_cap.toLocaleString()}</td>
+    <td><canvas id="chart-${asset.id}" width="100" height="50"></canvas></td>
+    `;
+    // console.log(asset.market_cap_rank);
+    // console.log(asset.image);
+    // console.log(asset.name);
+    // console.log(asset.symbol.toUpperCase());
+    // console.log(asset.current_price.toFixed(2));
+    // console.log(asset.price_change_percentage_24h.toFixed(2));
+    // console.log(asset.total_volume.toLocaleString());
+    // console.log(asset.market_cap.toLocaleString());
+    // console.log(asset.id);
+
+    table.appendChild(row);
+    sparklineData.push({
+      id: asset.id,
+      sparkline: asset.sparkline_in_7d.price,
+      color:
+        asset.sparkline_in_7d.price[0] <=
+        asset.sparkline_in_7d.price[asset.sparkline_in_7d.price.length - 1]
+          ? "green"
+          : "red",
+    });
+    row.onclick = () =>
+      (window.location.href = `../pages/coins.html?coin=${coinData.id}`);
+  });
+  cryptoList.appendChild(table);
+
+  sparklineData.forEach(({ id, sparkline, color }) => {
+    const ctx = document.getElementById(`chart-${id}`).getContext("2d");
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: sparkline.map((_, index) => index),
+        datasets: [
+          {
+            data: sparkline,
+            borderColor: color,
+            fill: false,
+            pointRadius: 0,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: false,
+        scales: {
+          x: {
+            display: false,
+          },
+          y: {
+            display: false,
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+      },
+    });
+  });
 }
