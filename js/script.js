@@ -314,3 +314,126 @@ function displayAssets(data) {
     });
   });
 }
+//////////////////////////////////////////////////////////////////////////////////
+// DISPLAY EXCHANGE TAB
+function displayExchange(data) {
+  const exchangeList = document.getElementById("exchange-list");
+  exchangeList.innerHTML = "";
+  const table = createTable(
+    [
+      "Rank",
+      "Exchange",
+      "Trust Score",
+      "24h Trade",
+      "24h Trade (Normal)",
+      "Country",
+      "Website",
+      "Year",
+    ],
+    1
+  );
+
+  data = data.slice(0, 20);
+
+  data.forEach((exchange) => {
+    // const coinData = coin.item;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td class="rank">${exchange.trust_score_rank}</td>
+        <td class="name-column table-fixed-column"> <img src="${exchange.image}"
+        alt="${exchange.name}"/>${exchange.name}</td>
+        <td>${exchange.trust_score}</td>
+        <td>£${exchange.trade_volume_24h_btc.toLocaleString(undefined, {
+          minimumFractionDigits: 3,
+          maximumFractionDigits: 3,
+        })} BTC</td>
+        <td>£${exchange.trade_volume_24h_btc_normalized.toLocaleString(
+          undefined,
+          { minimumFractionDigits: 3, maximumFractionDigits: 3 }
+        )} BTC</td>
+        <td class="name-column">${exchange.country || "N/A"}</td>
+        <td class="name-column">${exchange.url}</td>
+        <td>${exchange.year_established}</td>
+
+    `;
+
+    table.appendChild(row);
+  });
+  exchangeList.appendChild(table);
+}
+//////////////////////////////////////////////////////////////////// DISPLAY CATEGORIES TAB
+function displayCategories(data) {
+  const categoriesList = document.getElementById("category-list");
+  categoriesList.innerHTML = "";
+  const table = createTable(
+    ["Top Coins", "Category", "Market Cap", "24h Market Cap", "24h Volume"],
+    1
+  );
+
+  data = data.slice(0, 20);
+
+  data.forEach((category) => {
+    // const coinData = coin.item;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+    <td> ${category.top_3_coins
+      .map((coin) => `<img src="${coin}" alt="coin">`)
+      .join("")}</td>
+      <td class="name-column table-fixed-column">${category.name}</td>
+      <td>£${
+        category.market_cap
+          ? category.market_cap.toLocaleString(undefined, {
+              minimumFractionDigits: 3,
+              maximumFractionDigits: 3,
+            })
+          : "N/A"
+      }</td>
+      <td class="${category.market_cap_change_24h >= 0 ? "green" : "red"}">${
+      category.market_cap_change_24h
+        ? category.market_cap_change_24h.toFixed(3)
+        : "0"
+    }%</td>
+      <td>£${
+        category.volume_24h
+          ? category.volume_24h.toLocaleString(undefined, {
+              minimumFractionDigits: 3,
+              maximumFractionDigits: 3,
+            })
+          : "N/A"
+      }</td>
+
+    `;
+
+    table.appendChild(row);
+  });
+  categoriesList.appendChild(table);
+}
+//////////////////////////////////////////////////////////////////
+// DISPLAY COMPANY HOLDINGS TAB
+function displayCompanies(data) {
+  const companyList = document.getElementById("company-list");
+  companyList.innerHTML = "";
+  const table = createTable([
+    "Company",
+    "Total BTC",
+    "Entry Value",
+    "Total  Current Value",
+  ]);
+
+  data.companies.forEach((company) => {
+    // const coinData = coin.item;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+     <td class="name-column table-fixed-column">${company.name}</td>
+      <td>${company.total_holdings}</td>
+      <td>${company.total_entry_value_usd}</td>
+      <td>${company.total_current_value_usd}</td>
+      <td class="${
+        company.percentage_of_total_supply >= 0 ? "green" : "red"
+      }">${company.percentage_of_total_supply}%</td>
+    `;
+
+    table.appendChild(row);
+  });
+  companyList.appendChild(table);
+}

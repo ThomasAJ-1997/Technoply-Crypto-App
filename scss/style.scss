@@ -72,12 +72,12 @@ img {
   object-fit: cover;
 }
 
-table tr td img {
-  width: 3.2rem;
-  height: 3, 2rem;
-  vertical-align: middle;
-  margin-right: 0.6rem;
-  border-radius: 1.2rem;
+table {
+  overflow: scroll;
+}
+
+table tr td {
+  white-space: nowrap;
 }
 
 table tr td:first-child {
@@ -98,6 +98,28 @@ table tr td.name-column {
   text-overflow: ellipsis;
   padding-right: 3rem;
 }
+
+table tr td img {
+  width: 3.2rem;
+  height: 3, 2rem;
+  vertical-align: middle;
+  margin-right: 0.6rem;
+  border-radius: 1.2rem;
+}
+
+.table-fixed-column {
+  background: $background-color-primary;
+  position: sticky;
+  left: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+table thead tr:hover {
+  background: transparent !important;
+  cursor: unset !important;
+}
+
 body {
   background: $background-color-dark;
   display: flex;
@@ -273,11 +295,6 @@ nav .navigation-right-section > i.ri-moon-line {
   border-bottom: 1px solid $color-border-dark;
 }
 
-.trending thead tr:hover {
-  background: transparent !important;
-  cursor: unset !important;
-}
-
 .trending .coins-wrapper table tr,
 .tab-container .tab-content #asset-list table tr,
 .search-container .item #coins-listID table tr {
@@ -302,25 +319,19 @@ nav .navigation-right-section > i.ri-moon-line {
 .tab-container .tab-content #asset-list table tr:hover,
 .tab-container .tab-content #asset-list table tr:hover td.table-fixed-column,
 .search-container .item #coins-listID table tr td:hover {
-  background-color: $background-color-dark;
+  background-color: #595959;
+  //   border: 1px solid $color-white;
 }
 
 .trending .nfts-wrapper table tr:hover,
 .trending .nfts-wrapper table tr:hover td.table-fixed-column {
-  background-color: $background-color-dark;
+  background-color: #595959;
+  // border: 1px solid $color-white;
 }
 
 .trending .coins-wrapper .trending-container .table-fixed-column,
 .trending .nfts-wrapper .trending-container .table-fixed-column {
   left: -2rem;
-}
-
-.table-fixed-column {
-  background: $background-color-primary;
-  position: sticky;
-  left: 0;
-  z-index: 100;
-  transition: all 0.3s ease;
 }
 
 .error-message {
