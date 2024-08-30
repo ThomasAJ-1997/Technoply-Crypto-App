@@ -8,176 +8,176 @@ const dominance = document.getElementById("dominanceID");
 // LOCAL STORAGE AND COINGECKO API
 
 document.addEventListener("DOMContentLoaded", function () {
-  const themeToggle = document.getElementById("lightAndDarkModeToggleID");
-  const p_elements = Array.from(document.getElementsByTagName("p"));
-  const h3_elements = Array.from(document.getElementsByTagName("h3"));
-  const a_elements = Array.from(document.getElementsByTagName("a"));
-  const i_elements = Array.from(document.getElementsByTagName("i"));
-  const form_elements = Array.from(document.getElementsByTagName("form"));
-  const input_elements = Array.from(document.getElementsByTagName("input"));
-  const td_elements = Array.from(document.getElementsByTagName("td"));
-  const body = document.body;
+  // const themeToggle = document.getElementById("lightAndDarkModeToggleID");
+  // const p_elements = Array.from(document.getElementsByTagName("p"));
+  // const h3_elements = Array.from(document.getElementsByTagName("h3"));
+  // const a_elements = Array.from(document.getElementsByTagName("a"));
+  // const i_elements = Array.from(document.getElementsByTagName("i"));
+  // const form_elements = Array.from(document.getElementsByTagName("form"));
+  // const input_elements = Array.from(document.getElementsByTagName("input"));
+  // const td_elements = Array.from(document.getElementsByTagName("td"));
+  // const body = document.body;
 
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    body.id = savedTheme;
-    updateIcon(savedTheme);
-  }
+  // const savedTheme = localStorage.getItem("theme");
+  // if (savedTheme) {
+  //   body.id = savedTheme;
+  //   updateIcon(savedTheme);
+  // }
 
-  themeToggle.addEventListener("click", () => {
-    if (body.id === "light-theme") {
-      body.id = "dark-theme";
-      localStorage.setItem("theme", "dark-theme");
-      body.style.background = "#090014";
-      document.querySelector("nav").style.background = "#130138";
-      document.querySelector("footer").style.background = "#130138";
+  // themeToggle.addEventListener("click", () => {
+  //   if (body.id === "light-theme") {
+  //     body.id = "dark-theme";
+  //     localStorage.setItem("theme", "dark-theme");
+  //     body.style.background = "#090014";
+  //     document.querySelector("nav").style.background = "#130138";
+  //     document.querySelector("footer").style.background = "#130138";
 
-      p_elements.map((p_elements) => {
-        p_elements.style.color = "white";
-      });
-      h3_elements.map((h3_elements) => {
-        h3_elements.style.color = "white";
-      });
-      a_elements.map((a_elements) => {
-        a_elements.style.color = "white";
-      });
-      i_elements.map((i_elements) => {
-        i_elements.style.color = "white";
-        i_elements.style.background = "black";
-        i_elements.style.borderColor = "black";
-        i_elements.style.border = "1px";
-      });
+  //     p_elements.map((p_elements) => {
+  //       p_elements.style.color = "white";
+  //     });
+  //     h3_elements.map((h3_elements) => {
+  //       h3_elements.style.color = "white";
+  //     });
+  //     a_elements.map((a_elements) => {
+  //       a_elements.style.color = "white";
+  //     });
+  //     i_elements.map((i_elements) => {
+  //       i_elements.style.color = "white";
+  //       i_elements.style.background = "black";
+  //       i_elements.style.borderColor = "black";
+  //       i_elements.style.border = "1px";
+  //     });
 
-      input_elements.map((input_elements) => {
-        input_elements.style.color = "white";
-        input_elements.style.background = "#000";
-        input_elements.style.borderColor = "black";
-        input_elements.style.border = "1px";
-      });
+  //     input_elements.map((input_elements) => {
+  //       input_elements.style.color = "white";
+  //       input_elements.style.background = "#000";
+  //       input_elements.style.borderColor = "black";
+  //       input_elements.style.border = "1px";
+  //     });
 
-      form_elements.map((form_elements) => {
-        form_elements.style.color = "white";
-        form_elements.style.background = "#000";
-        form_elements.style.borderColor = "black";
-        form_elements.style.border = "1px";
-      });
+  //     form_elements.map((form_elements) => {
+  //       form_elements.style.color = "white";
+  //       form_elements.style.background = "#000";
+  //       form_elements.style.borderColor = "black";
+  //       form_elements.style.border = "1px";
+  //     });
 
-      const th = document.querySelectorAll("th");
-      for (let cell of th) {
-        cell.style.color = "#bebebe";
-      }
+  //     const th = document.querySelectorAll("th");
+  //     for (let cell of th) {
+  //       cell.style.color = "#bebebe";
+  //     }
 
-      const td = document.querySelectorAll("td");
-      for (let cell of td) {
-        cell.style.color = "#bebebe";
-      }
+  //     const td = document.querySelectorAll("td");
+  //     for (let cell of td) {
+  //       cell.style.color = "#bebebe";
+  //     }
 
-      const fixed = document.querySelectorAll(".table-fixed-column");
-      for (let cell of fixed) {
-        cell.style.background = "#130138";
-      }
+  //     const fixed = document.querySelectorAll(".table-fixed-column");
+  //     for (let cell of fixed) {
+  //       cell.style.background = "#130138";
+  //     }
 
-      const trending = document.querySelectorAll(".trending-container");
-      for (let cell of trending) {
-        cell.style.background = "#130138";
-      }
+  //     const trending = document.querySelectorAll(".trending-container");
+  //     for (let cell of trending) {
+  //       cell.style.background = "#130138";
+  //     }
 
-      const tab = document.querySelectorAll(".tab-container");
-      for (let cell of tab) {
-        cell.style.background = "#130138";
-      }
+  //     const tab = document.querySelectorAll(".tab-container");
+  //     for (let cell of tab) {
+  //       cell.style.background = "#130138";
+  //     }
 
-      const tabs = document.querySelectorAll(".tabs");
-      for (let cell of tabs) {
-        cell.style.background = "#090014";
-      }
+  //     const tabs = document.querySelectorAll(".tabs");
+  //     for (let cell of tabs) {
+  //       cell.style.background = "#090014";
+  //     }
 
-      const buttons = document.querySelectorAll(".tab-button");
-      for (let cell of buttons) {
-        cell.style.color = "#bebebe";
-      }
+  //     const buttons = document.querySelectorAll(".tab-button");
+  //     for (let cell of buttons) {
+  //       cell.style.color = "#bebebe";
+  //     }
 
-      updateIcon("dark-theme");
-    } else {
-      body.id = "light-theme";
-      localStorage.setItem("theme", "light-theme");
-      body.style.background = "#eee";
-      document.querySelector("nav").style.background = "#fff";
-      document.querySelector("footer").style.background = "#fff";
+  //     updateIcon("dark-theme");
+  //   } else {
+  //     body.id = "light-theme";
+  //     localStorage.setItem("theme", "light-theme");
+  //     body.style.background = "#eee";
+  //     document.querySelector("nav").style.background = "#fff";
+  //     document.querySelector("footer").style.background = "#fff";
 
-      p_elements.map((p_elements) => {
-        p_elements.style.color = "black";
-      });
+  //     p_elements.map((p_elements) => {
+  //       p_elements.style.color = "black";
+  //     });
 
-      h3_elements.map((h3_elements) => {
-        h3_elements.style.color = "black";
-      });
-      a_elements.map((a_elements) => {
-        a_elements.style.color = "black";
-      });
-      td_elements.map((td_elements) => {
-        td_elements.style.color = "black";
-      });
-      i_elements.map((i_elements) => {
-        i_elements.style.color = "black";
-        i_elements.style.background = "#eee";
-        i_elements.style.borderColor = "white";
-        i_elements.style.border = "1px";
-      });
-      input_elements.map((input_elements) => {
-        input_elements.style.color = "black";
-        input_elements.style.background = "#eee";
-        input_elements.style.borderColor = "white";
-        input_elements.style.border = "1px";
-      });
+  //     h3_elements.map((h3_elements) => {
+  //       h3_elements.style.color = "black";
+  //     });
+  //     a_elements.map((a_elements) => {
+  //       a_elements.style.color = "black";
+  //     });
+  //     td_elements.map((td_elements) => {
+  //       td_elements.style.color = "black";
+  //     });
+  //     i_elements.map((i_elements) => {
+  //       i_elements.style.color = "black";
+  //       i_elements.style.background = "#eee";
+  //       i_elements.style.borderColor = "white";
+  //       i_elements.style.border = "1px";
+  //     });
+  //     input_elements.map((input_elements) => {
+  //       input_elements.style.color = "black";
+  //       input_elements.style.background = "#eee";
+  //       input_elements.style.borderColor = "white";
+  //       input_elements.style.border = "1px";
+  //     });
 
-      form_elements.map((form_elements) => {
-        form_elements.style.color = "black";
-        form_elements.style.background = "#eee";
-        form_elements.style.borderColor = "white";
-        form_elements.style.border = "1px";
-      });
+  //     form_elements.map((form_elements) => {
+  //       form_elements.style.color = "black";
+  //       form_elements.style.background = "#eee";
+  //       form_elements.style.borderColor = "white";
+  //       form_elements.style.border = "1px";
+  //     });
 
-      const th = document.querySelectorAll("th");
-      for (let cell of th) {
-        cell.style.color = "black";
-      }
+  //     const th = document.querySelectorAll("th");
+  //     for (let cell of th) {
+  //       cell.style.color = "black";
+  //     }
 
-      const td = document.querySelectorAll("td");
-      for (let cell of td) {
-        cell.style.color = "black";
-      }
+  //     const td = document.querySelectorAll("td");
+  //     for (let cell of td) {
+  //       cell.style.color = "black";
+  //     }
 
-      const fixed = document.querySelectorAll(".table-fixed-column");
-      for (let cell of fixed) {
-        cell.style.background = "#eff2f5";
-      }
+  //     const fixed = document.querySelectorAll(".table-fixed-column");
+  //     for (let cell of fixed) {
+  //       cell.style.background = "#eff2f5";
+  //     }
 
-      const trending = document.querySelectorAll(".trending-container");
-      for (let cell of trending) {
-        cell.style.background = "#eff2f5";
-      }
+  //     const trending = document.querySelectorAll(".trending-container");
+  //     for (let cell of trending) {
+  //       cell.style.background = "#eff2f5";
+  //     }
 
-      const tab = document.querySelectorAll(".tab-container");
-      for (let cell of tab) {
-        cell.style.background = "#eff2f5";
-      }
+  //     const tab = document.querySelectorAll(".tab-container");
+  //     for (let cell of tab) {
+  //       cell.style.background = "#eff2f5";
+  //     }
 
-      const tabs = document.querySelectorAll(".tabs");
-      for (let cell of tabs) {
-        cell.style.background = "#eff2f5";
-      }
+  //     const tabs = document.querySelectorAll(".tabs");
+  //     for (let cell of tabs) {
+  //       cell.style.background = "#eff2f5";
+  //     }
 
-      const buttons = document.querySelectorAll(".tab-button");
-      for (let cell of buttons) {
-        cell.style.color = "black";
-      }
-    }
-  });
+  //     const buttons = document.querySelectorAll(".tab-button");
+  //     for (let cell of buttons) {
+  //       cell.style.color = "black";
+  //     }
+  //   }
+  // });
 
-  function updateIcon() {
-    themeToggle.classList.add("ri-moon-fill");
-  }
+  // function updateIcon() {
+  //   themeToggle.classList.add("ri-moon-fill");
+  // }
   fetchGlobal();
 });
 // Function: Reads data from the local Sotrage besides if?
@@ -299,4 +299,3 @@ function createTable(headers, fixIndex = 0) {
 }
 
 /////////////////////////////////////////////////////////////////
-// TOGGLE MODE

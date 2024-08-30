@@ -52,21 +52,37 @@
               autofocus="off"
             />
           </form>
-          <i id="lightAndDarkModeToggleID" class="ri-sun-fill"></i>
+          <!-- <i id="lightAndDarkModeToggleID" class="ri-sun-fill"></i> -->
         </div>
       </nav>
       <!-- Charts Section -->
       <div class="charts-container">
-        <div class="tradingview-menu-container" id="chart-menu"></div>
-        <div class="tradingview-menu-copyright hidden">
-          <a
-            href="https://www.tradingview.com/"
-            rel="noopener nofollow"
-            target="_blank"
-            ><span class="white-text">Track the markets on TradingView</span></a
-          >
-        </div>
-      </div>
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div id="tradingview_a193d0"></div>
+  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async></script>
+
+  <script type="text/javascript">
+    new TradingView.widget({
+  "autosize": true,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "240",
+  "timezone": "Europe/London",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "calendar": false,
+  "hide_side_toolbar": false,
+  "support_host": "https://www.tradingview.com",
+  "container_id": 'tradingview_a193d0',
+    })
+  </script>
+</div>
+<!-- TradingView Widget END -->
+      
     </div>
 
     <footer>
