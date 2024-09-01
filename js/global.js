@@ -8,16 +8,6 @@ const dominance = document.getElementById("dominanceID");
 // LOCAL STORAGE AND COINGECKO API
 
 document.addEventListener("DOMContentLoaded", function () {
-  // const themeToggle = document.getElementById("lightAndDarkModeToggleID");
-  // const p_elements = Array.from(document.getElementsByTagName("p"));
-  // const h3_elements = Array.from(document.getElementsByTagName("h3"));
-  // const a_elements = Array.from(document.getElementsByTagName("a"));
-  // const i_elements = Array.from(document.getElementsByTagName("i"));
-  // const form_elements = Array.from(document.getElementsByTagName("form"));
-  // const input_elements = Array.from(document.getElementsByTagName("input"));
-  // const td_elements = Array.from(document.getElementsByTagName("td"));
-  // const body = document.body;
-
   // const savedTheme = localStorage.getItem("theme");
   // if (savedTheme) {
   //   body.id = savedTheme;
@@ -178,6 +168,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // function updateIcon() {
   //   themeToggle.classList.add("ri-moon-fill");
   // }
+
+  const form = document.getElementById("searchFormID");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const query = document.getElementById("searchInputID").value.trim();
+    if (!query) return;
+
+    window.location.href = `../pages/search.html?query=${query}`;
+  });
   fetchGlobal();
 });
 // Function: Reads data from the local Sotrage besides if?
