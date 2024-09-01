@@ -110,9 +110,6 @@ function coinsResults(coins) {
     </td>
     `;
     table.appendChild(row);
-    // row.onclick = () => {
-    //   window.location.href = `../pages/coins.html?coin=${coin.id}`;
-    // };
   });
   coinList.appendChild(table);
 }

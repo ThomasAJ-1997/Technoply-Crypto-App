@@ -4,6 +4,7 @@
 // SCSS IMPORTS
 @import "../scss/variables.scss";
 @import "../scss/animation.scss";
+@import "../scss/mediaQueries.scss";
 
 // SCSS PAGES
 @import "../scss/charts.scss";
@@ -29,6 +30,18 @@ html {
   $color-links: #1565c0;
   color: black;
   background-color: $background-color-dark;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 6px;
+  background: hsl(0, 0%, 49%);
+  cursor: all-scroll;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(255, 100%, 15%);
+  border: 1px solid #220070;
+  cursor: all-scroll;
 }
 
 ////////////////////////////////////
@@ -409,14 +422,318 @@ footer p {
   font-size: 1.3rem;
 }
 
-footer .social-icons {
+footer .social-icons,
+.overlay .social-icons {
   display: flex;
   align-items: center;
   gap: 1rem;
   font-size: 1.2rem;
 }
 
-footer .social-icons a i {
+footer .social-icons a i,
+.overlay .social-icons a i {
   font-size: 2.6rem;
-  color: $color-white;
+  // margin: 4rem;
+  // color: $color-white;
+}
+
+footer .social-icons a,
+.overlay .social-icons a {
+  background: $background-color-primary;
+  padding: 8px;
+  border-radius: 1.2rem;
+  border: 1px solid $color-border;
+  transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover,
+.overlay .social-icons a:hover {
+  background: $color-links;
+}
+
+#buttonOpenMenu {
+  background: $background-color-primary;
+  font-size: 2rem;
+  padding: 8px;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  background: $background-color-dark;
+  width: 100%;
+  height: 100vh;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.5 ease;
+}
+
+.overlay.show {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.overlay .navigation-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.overlay .navigation-links a {
+  font-size: 2.4rem;
+  transition: all 0.3s ease;
+}
+
+.overlay .navigation-links a:active,
+.overlay .navigation-links a:hover {
+  color: $color-links;
+}
+
+.overlay button #close-menu {
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.overlay button#close-menu i {
+  font-size: 3.4rem;
+  transition: all 0.3s ease;
+}
+
+.overlay button#close-menu i:hover {
+  color: $color-links;
+}
+
+/////////////////////////////////////////
+@media screen and (max-width: 1400px) {
+  .coin-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .coin-container .coins-left-section {
+    width: 38%;
+  }
+
+  .coin-container .coins-main-section {
+    width: 59%;
+  }
+
+  .coin-container .coins-right-section {
+    flex-direction: row;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .coin-container .coins-right-section .status {
+    width: 33%;
+  }
+
+  .coin-container .coins-right-section .status > h3,
+  .coin-container .coins-right-section .status:first-child > h3 {
+    margin: 3rem 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  nav .navigation-right-section {
+    width: 40%;
+  }
+
+  .trending .coins-wrapper .trending-container,
+  .trending .nfts-wrapper .trending-container,
+  .tab-content #asset-list,
+  .tab-content #exchange-list {
+    overflow-x: scroll;
+  }
+
+  .coins-wrapper table,
+  .nfts-wrapper table,
+  #asset-list table,
+  #exchange-list table {
+    width: 150%;
+  }
+
+  table tr td.name-column {
+    max-width: 160px;
+    padding-right: 50px;
+  }
+
+  footer {
+    width: 60%;
+  }
+
+  .about-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .global-section {
+    gap: 3rem;
+  }
+
+  .global-section p {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  nav .navigation-right-section {
+    gap: 2rem;
+  }
+
+  .trending {
+    flex-direction: column;
+    gap: 3.6rem;
+  }
+
+  .trending .coins-wrapper,
+  .trending .nfts-wrapper {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+    padding: 1.6rem 9rem;
+  }
+
+  .tab-content #category-list,
+  .tab-content #company-list {
+    overflow-x: scroll;
+  }
+
+  .tab-content #category-list table,
+  .tab-content #company-list table {
+    width: 150%;
+  }
+  #asset-list table,
+  #exchange-list table {
+    width: 200%;
+  }
+
+  .search-container {
+    flex-wrap: wrap;
+  }
+
+  .search-container .item:nth-child(1),
+  .search-container .item:nth-child(2) {
+    width: 48%;
+  }
+
+  .search-container .item:nth-child(3) {
+    width: 100%;
+  }
+
+  .search-container .item:nth-child(3) h4 {
+    margin: 1rem 0 2rem;
+    border-top: 1px dashed $color-border;
+    padding-top: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column-reverse;
+    gap: 4rem;
+  }
+
+  .about-container .image {
+    text-align: center;
+  }
+
+  .about-container .image img {
+    width: 60%;
+  }
+
+  .coin-container .coins-left-section {
+    width: 100%;
+  }
+
+  .coin-container .coins-main-section {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .coin-container .coins-right-section {
+    flex-wrap: wrap;
+  }
+
+  .coin-container .coins-right-section .status:first-child {
+    width: 100%;
+  }
+
+  .coin-container .coins-right-section .status {
+    width: 48%;
+  }
+
+  .coin-container .coins-right-section > h3 {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .global-section p:last-child {
+    display: none;
+  }
+
+  nav .navigation-right-section {
+    width: 65%;
+  }
+
+  nav .navigation-left-section {
+    gap: 1rem;
+  }
+
+  nav .navigation-left-section .navigation-links {
+    display: none;
+  }
+
+  #buttonOpenMenu {
+    display: flex;
+  }
+
+  .tab-container .tabs {
+    flex-wrap: wrap;
+    gap: 1rem 0;
+  }
+
+  .tab-container .tab-button {
+    width: 50%;
+  }
+
+  #asset-list table,
+  #exchange-list table,
+  .tab-content #category-list table {
+    width: 300%;
+  }
+
+  .tab-content #company-list table {
+    width: 250%;
+  }
+
+  .tab-content #company-list tr td.name-column {
+    width: 120px;
+  }
+
+  footer {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  footer p {
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
 }

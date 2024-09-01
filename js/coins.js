@@ -322,3 +322,16 @@ function displayCoinInfo(coin) {
     coin.description.en ||
     `<p class="red">Asset description not available!</p>`;
 }
+
+function getThemeConfig() {
+  const root = getComputedStyle(document.documentElement);
+  const darkTheme =
+    localStorage.getItem("theme") === "light-theme" ? false : true;
+
+  return {
+    theme: darkTheme ? "dark" : "light",
+    backgroundColor: root
+      .getPropertyValue(darkTheme ? `#090014` : "#bebebe")
+      .trim(),
+  };
+}
